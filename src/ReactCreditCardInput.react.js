@@ -66,18 +66,18 @@ var cards = [{
 var ReactCreditCardInput = React.createClass({
   handleCCNumberInput: function(e) {
     var target = e.currentTarget,
-        n = target.value,
+        targetVal = target.value,
         i = String.fromCharCode(e.which),
-        o = (n.replace(/\D/g, "") + i).length,
-        a = cardFromNumber(n + i),
-        s = 16;
+        targetLen = (targetVal.replace(/\D/g, "") + i).length,
+        a = cardFromNumber(targetVal + i),
+        maxLength = 16;
 
-    if (a && (s = a.length), !/^\d+$/.test(i) || o > s)
+    if (a && (maxLength = a.length), !/^\d+$/.test(i) || targetLen > maxLength)
       return void e.preventDefault();
 
     var l = a && "amex" === a.type ? /^(\d{4}|\d{4}\s\d{6})$/ : /(?:^|\s)(\d{4})$/;
 
-    return l.test(n) && target.selectionStart === n.length ? (e.preventDefault(), void(target.value = n + " " + i)) : void 0;
+    return l.test(targetVal) && target.selectionStart === targetVal.length ? (e.preventDefault(), void(target.value = targetVal + " " + i)) : void 0;
   },
 
   render: function() {

@@ -4,7 +4,8 @@ React component for credit card input.
 
 ## Installation
 
-React Input Calendar is available as an [npm package](https://www.npmjs.org/package/react-input-calendar).
+// TODO npm package
+
 ```sh
 npm install react-input-creditcard
 ```
