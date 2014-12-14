@@ -1,6 +1,6 @@
 # React Credit Card Input
 
-React component for credit card input.
+React component for credit card input. It contains visa, master card, amex, dinnersclub, discover and jcb patterns.
 
 ## Installation
 
