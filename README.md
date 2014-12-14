@@ -6,9 +6,7 @@ React component for credit card input.
 
 // TODO npm package
 
-```sh
-npm install react-input-creditcard
-```
+
 
 Use [browserify](http://browserify.org/) and [reactify](https://github.com/andreypopp/reactify) for dependency management and JSX transformation.
 
