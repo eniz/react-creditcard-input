@@ -1,9 +1,14 @@
-/**
- * @jsx React.DOM
- */
 "use strict";
 
 var React = require('react');
 var ReactCreditCardInput = require('../index.js');
 
-React.render(<ReactCreditCardInput />, document.getElementById('react'));
+
+module.exports = {
+  init: function() {
+    React.render(React.createElement(ReactCreditCardInput), document.getElementById('react'));
+  }
+}
+
+
+

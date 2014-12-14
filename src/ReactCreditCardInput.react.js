@@ -3,7 +3,6 @@
  */
 "use strict";
 
-var _ = require('lodash');
 var React = require('react');
 
 
