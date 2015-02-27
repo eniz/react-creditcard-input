@@ -116,6 +116,7 @@ var ReactCreditCardInput = React.createClass({
         <input
           type="text"
           autoComplete="off"
+          autoFocus="true"
           onKeyPress={this.handleCCNumberInput}
           placeholder="• • • •   • • • •   • • • •   • • • •" />
       </div>
