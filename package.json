@@ -6,6 +6,7 @@
     "type": "git",
     "url": "https://github.com/eniz/react-creditcard-input"
   },
+  "bugs": "https://github.com/eniz/react-creditcard-input/issues",
   "main": "index.js",
   "dependencies": {
     "react": "^0.12.1",
