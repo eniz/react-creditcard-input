@@ -2,7 +2,10 @@
   "name": "react-creditcard-input",
   "version": "0.0.1",
   "description": "Credit Card input widget react component",
-  "repository": "https://github.com/enzglk/react-creditcard-input",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eniz/react-creditcard-input"
+  },
   "main": "index.js",
   "dependencies": {
     "react": "^0.12.1",
