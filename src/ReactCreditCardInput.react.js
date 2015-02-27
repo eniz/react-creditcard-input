@@ -6,77 +6,108 @@
 var React = require('react');
 
 
-function cardFromNumber(num) {
+var cardFromNumber = function(num) {
   num = (num + "").replace(/D/g, "");
   for (var i = 0; i < cards.length; i++) {
     var n = cards[i];
-    if (n.pattern.test(num))
-      return n;
+    if (n.pattern.test(num)) return n;
   }
 }
 
 var defaultFormat = /(\d{1,4})/g;
 
-var cards = [{
-                type: "visa",
-                pattern: /^4/,
-                format: defaultFormat,
-                length: [16],
-                cvcLength: [3],
-                luhn: true
-            }, {
-                type: "mastercard",
-                pattern: /^5[0-5]/,
-                format: defaultFormat,
-                length: [16],
-                cvcLength: [3],
-                luhn: true
-            }, {
-                type: "amex",
-                pattern: /^3[47]/,
-                format: /(\d{1,4})(\d{1,6})?(\d{1,5})?/,
-                length: [15],
-                cvcLength: [4],
-                luhn: true
-            }, {
-                type: "dinersclub",
-                pattern: /^3[0689]/,
-                format: defaultFormat,
-                length: [14],
-                cvcLength: [3],
-                luhn: true
-            }, {
-                type: "discover",
-                pattern: /^6([045]|22)/,
-                format: defaultFormat,
-                length: [16],
-                cvcLength: [3],
-                luhn: true
-            }, {
-                type: "jcb",
-                pattern: /^35/,
-                format: defaultFormat,
-                length: [16],
-                cvcLength: [3],
-                luhn: true
-            }];
+var cards = [
+  {
+    type: 'maestro',
+    pattern: /^(5018|5020|5038|6304|6759|676[1-3]|6768|5612|5893|6304|6759|0604|6390)/,
+    format: defaultFormat,
+    length: [12, 13, 14, 15, 16, 17, 18, 19],
+    cvcLength: [3],
+    luhn: true
+  },
+  {
+    type: 'diners_club',
+    pattern: /^(36|38|30[0-5])/,
+    format: defaultFormat,
+    length: [14],
+    cvcLength: [3],
+    luhn: true
+  },
+  {
+    type: 'laser',
+    pattern: /^(6706|6771|6709)/,
+    format: defaultFormat,
+    length: [16, 17, 18, 19],
+    cvcLength: [3],
+    luhn: true
+  },
+  {
+    type: 'jcb',
+    pattern: /^35/,
+    format: defaultFormat,
+    length: [16],
+    cvcLength: [3],
+    luhn: true
+  },
+  {
+    type: 'china_union',
+    pattern: /^62/,
+    format: defaultFormat,
+    length: [16, 17, 18, 19],
+    cvcLength: [3],
+    luhn: false
+  },
+  {
+    type: 'discover',
+    pattern: /^(6011|65|64[4-9]|622)/,
+    format: defaultFormat,
+    length: [16],
+    cvcLength: [3],
+    luhn: true
+  },
+  {
+    type: 'mastercard',
+    pattern: /^5[1-5]/,
+    format: defaultFormat,
+    length: [16],
+    cvcLength: [3],
+    luhn: true
+  },
+  {
+    type: 'amex',
+    pattern: /^3[47]/,
+    format: /(\d{1,4})(\d{1,6})?(\d{1,5})?/,
+    length: [15],
+    cvcLength: [3, 4],
+    luhn: true
+  },
+  {
+    type: 'visa',
+    pattern: /^4/,
+    format: defaultFormat,
+    length: [13, 14, 15, 16],
+    cvcLength: [3],
+    luhn: true
+  }
+];
 
 
 var ReactCreditCardInput = React.createClass({
   handleCCNumberInput: function(e) {
     var target = e.currentTarget,
-        targetVal = target.value,
-        i = String.fromCharCode(e.which),
-        targetLen = (targetVal.replace(/\D/g, "") + i).length,
-        a = cardFromNumber(targetVal + i),
-        maxLength = 16;
+      targetVal = target.value,
+      charCode = String.fromCharCode(e.which),
+      charCodeLen = (targetVal.replace(/\D/g, "") + charCode).length,
+      card = cardFromNumber(targetVal + charCode),
+      maxLength = 16;
 
-    if (a && (maxLength = a.length), !/^\d+$/.test(i) || targetLen > maxLength)
+    if (card && (maxLength = card.length), !/^\d+$/.test(charCode) || charCodeLen > maxLength) {
       return void e.preventDefault();
+    }
 
-    var l = a && "amex" === a.type ? /^(\d{4}|\d{4}\s\d{6})$/ : /(?:^|\s)(\d{4})$/;
+    var cardTest = card && "amex" === card.type ? /^(\d{4}|\d{4}\s\d{6})$/ : /(?:^|\s)(\d{4})$/;
 
-    return l.test(targetVal) && target.selectionStart === targetVal.length ? (e.preventDefault(), void(target.value = targetVal + " " + i)) : void 0;
+    return cardTest.test(targetVal) && target.selectionStart === targetVal.length ? (e.preventDefault(), void(target.value = targetVal + " " + charCode)) : void 0;
   },
 
   render: function() {
