@@ -7,18 +7,15 @@
     "url": "https://github.com/eniz/react-creditcard-input"
   },
   "bugs": "https://github.com/eniz/react-creditcard-input/issues",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "dependencies": {
-    "react": "^0.12.1",
-    "lodash": "^2.4.1"
+    "react": "^0.13.1"
   },
   "devDependencies": {
+    "gulp": "^3.8.9",
     "browserify": "^6.3.3",
-    "envify": "^3.0.0",
-    "jest-cli": "~0.1.18",
-    "reactify": "^0.17.1",
-    "uglify-js": "~2.4.15",
-    "watchify": "^2.1.1"
+    "reactify": "^0.15.2",
+    "vinyl-source-stream": "^0.1.1"
   },
   "scripts": {
     "start": "watchify -o bundle.js -v -d .",
@@ -27,8 +24,7 @@
   },
   "browserify": {
     "transform": [
-      "reactify",
-      "envify"
+      "reactify"
     ]
   },
   "jest": {

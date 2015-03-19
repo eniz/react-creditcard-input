@@ -1,7 +1,7 @@
 "use strict";
 
 var React = require('react');
-var ReactCreditCardInput = require('../index.js');
+var ReactCreditCardInput = require('./../src/ReactCreditCardInput');
 
 
 module.exports = {
