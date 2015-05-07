@@ -1,6 +1,5 @@
 "use strict";
 
-//var React = require('react');
 import React from 'react';
 
 var cardFromNumber = function(num) {
@@ -105,7 +104,7 @@ export default class ReactCreditCardInput extends React.Component{
     var target = e.currentTarget,
       targetVal = target.value,
       charCode = String.fromCharCode(e.which),
-      charCodeLen = (targetVal.replace(/\D/g, "") + charCode).length
+      charCodeLen = (targetVal.replace(/\D/g, "") + charCode).length,
       card = cardFromNumber(targetVal + charCode),
       maxLength = 16;
 
