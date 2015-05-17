@@ -17,13 +17,11 @@
   },
   "scripts": {
     "start": "npm run build && serve .",
-    "build": "npm run build-js && npm run build-css",
+    "build": "npm run build-js",
     "watch": "npm run watch-js & npm run watch-css & serve .",
     "test": "npm run lint -s && npm run build",
-    "build-css": "rework-npm src/app.css | cleancss -o build/build.css",
     "build-js": "browserify --extension=.jsx --extension=.js src/app.jsx | uglifyjs > build/build.js",
     "watch-js": "watchify --extension=.jsx --extension=.js src/app.jsx -o build/build.js --debug --verbose",
-    "watch-css": "nodemon -e css --ignore build/build.css --exec 'rework-npm src/app.css -o build/build.css'",
     "lint-eslint": "eslint .",
     "lint-jscs": "jscs .",
     "lint": "npm run lint-eslint && npm run lint-jscs"
