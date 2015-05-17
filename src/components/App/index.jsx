@@ -1,6 +1,4 @@
-"use strict";
-
-var React = require('react');
+import React from 'react';
 
 
 var cardFromNumber = function(num) {
@@ -88,9 +86,21 @@ var cards = [
   }
 ];
 
+export default class App extends React.Component {
+  render() {
+  	return (
+  	  <div className="credit-card">
+        <input 
+          type="text"
+	      autoComplete="off"
+	      autoFocus="true"
+          onKeyPress={(e)=> this.handleCCNumberInput(e)}
+          placeholder="• • • •   • • • •   • • • •   • • • •" />
+      </div>
+  	);
+  }
 
-var ReactCreditCardInput = React.createClass({
-  handleCCNumberInput: function(e) {
+  handleCCNumberInput(e) {
     var target = e.currentTarget,
       targetVal = target.value,
       charCode = String.fromCharCode(e.which),
@@ -98,27 +108,10 @@ var ReactCreditCardInput = React.createClass({
       card = cardFromNumber(targetVal + charCode),
       maxLength = 16;
 
-    if (card && (maxLength = card.length), !/^\d+$/.test(charCode) || charCodeLen > maxLength) {
-      return void e.preventDefault();
-    }
-
-    var cardTest = card && "amex" === card.type ? /^(\d{4}|\d{4}\s\d{6})$/ : /(?:^|\s)(\d{4})$/;
-
-    return cardTest.test(targetVal) && target.selectionStart === targetVal.length ? (e.preventDefault(), void(target.value = targetVal + " " + charCode)) : void 0;
-  },
-
-  render: function() {
-    return (
-      <div className="react-credit-card-input">
-        <input
-          type="text"
-          autoComplete="off"
-          autoFocus="true"
-          onKeyPress={this.handleCCNumberInput}
-          placeholder="• • • •   • • • •   • • • •   • • • •" />
-      </div>
-    );
+      if (card && (maxLength = card.length), !/^\d+$/.test(charCode) || charCodeLen > maxLength) {
+        return void e.preventDefault();
+      }
+      var cardTest = card && "amex" === card.type ? /^(\d{4}|\d{4}\s\d{6})$/ : /(?:^|\s)(\d{4})$/;
+      return cardTest.test(targetVal) && target.selectionStart === targetVal.length ? (e.preventDefault(), void(target.value = targetVal + " " + charCode)) : void 0;
   }
-});
-
-module.exports = ReactCreditCardInput;
+}

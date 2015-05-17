@@ -1,42 +1,52 @@
 {
   "name": "react-creditcard-input",
   "version": "0.0.1",
-  "description": "Credit Card input widget react component",
+  "description": "Credit card input as react component ",
+  "main": "src/app.jsx",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eniz/react-creditcard-input"
+    "url": "git@github.com:eniz/react-creditcard-input.git"
   },
-  "bugs": "https://github.com/eniz/react-creditcard-input/issues",
-  "main": "gulpfile.js",
+  "authors": [
+    "Eniz Gulek<enizgulek@gmail.com> (http://enizgulek.com)"
+  ],
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "scripts": {
+    "start": "npm run build && serve .",
+    "build": "npm run build-js",
+    "watch": "npm run watch-js & npm run watch-css & serve .",
+    "test": "npm run lint -s && npm run build",
+    "build-js": "browserify --extension=.jsx --extension=.js src/app.jsx | uglifyjs > build/build.js",
+    "watch-js": "watchify --extension=.jsx --extension=.js src/app.jsx -o build/build.js --debug --verbose",
+    "lint-eslint": "eslint .",
+    "lint-jscs": "jscs .",
+    "lint": "npm run lint-eslint && npm run lint-jscs"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eniz/react-creditcard-input/issues"
+  },
+  "homepage": "https://github.com/eniz/react-creditcard-input",
   "dependencies": {
+    "bootstrap": "^3.3.0",
+    "flux": "^2.0.1",
     "react": "^0.13.1"
   },
   "devDependencies": {
-    "gulp": "^3.8.9",
-    "browserify": "^6.3.3",
-    "reactify": "^0.15.2",
-    "vinyl-source-stream": "^0.1.1"
-  },
-  "scripts": {
-    "start": "watchify -o bundle.js -v -d .",
-    "build": "NODE_ENV=production browserify . | uglifyjs -cm > input-creditcard.min.js",
-    "test": "jest"
-  },
-  "browserify": {
-    "transform": [
-      "reactify"
-    ]
-  },
-  "jest": {
-    "rootDir": "./src"
-  },
-  "keywords": [
-    "react",
-    "creditcard",
-    "input-creditcard",
-    "react-component"
-  ],
-  "homepage": "",
-  "author": "Eniz Gülek <enizgulek@gmail.com> (https://github.com/eniz)",
-  "license": "MIT"
+    "babelify": "^6.0.2",
+    "browser-sync": "^2.1.6",
+    "browserify": "^8.0.3",
+    "eslint": "^0.14.1",
+    "nodemon": "^1.3.7",
+    "rework": "^1.0.1",
+    "rework-npm": "^1.0.0",
+    "rework-npm-cli": "^0.1.1",
+    "serve": "^1.4.0",
+    "uglify-js": "^2.4.15",
+    "watchify": "^2.1.1"
+  }
 }
