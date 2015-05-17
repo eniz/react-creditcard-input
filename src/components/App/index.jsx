@@ -1,6 +1,5 @@
-"use strict";
-
 import React from 'react';
+
 
 var cardFromNumber = function(num) {
   num = (num + "").replace(/D/g, "");
@@ -87,14 +86,13 @@ var cards = [
   }
 ];
 
-
 export default class ReactCreditCardInput extends React.Component{
   render() {
     <div className="credit-card">
       <input 
         type="text"
-	autoComplete="off"
-	autoFocus="true"
+	    autoComplete="off"
+	    autoFocus="true"
         onKeyPress={(e)=> this.handleCCNumberInput(e)}
         placeholder="• • • •   • • • •   • • • •   • • • •" />
     </div>
@@ -114,5 +112,4 @@ export default class ReactCreditCardInput extends React.Component{
       var cardTest = card && "amex" === card.type ? /^(\d{4}|\d{4}\s\d{6})$/ : /(?:^|\s)(\d{4})$/;
       return cardTest.test(targetVal) && target.selectionStart === targetVal.length ? (e.preventDefault(), void(target.value = targetVal + " " + charCode)) : void 0;
   }
-
 }
