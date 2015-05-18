@@ -1,13 +1,7 @@
 import React from 'react';
 
 
-var cardFromNumber = function(num) {
-  num = (num + "").replace(/D/g, "");
-  for (var i = 0; i < cards.length; i++) {
-    var n = cards[i];
-    if (n.pattern.test(num)) return n;
-  }
-}
+
 
 var defaultFormat = /(\d{1,4})/g;
 
@@ -85,6 +79,14 @@ var cards = [
     luhn: true
   }
 ];
+
+var cardFromNumber = function(num) {
+  num = (num + "").replace(/D/g, "");
+  for (var i = 0; i < cards.length; i++) {
+    var n = cards[i];
+    if (n.pattern.test(num)) return n;
+  }
+}
 
 export default class App extends React.Component {
   constructor(props) {
