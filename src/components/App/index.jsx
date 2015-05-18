@@ -101,6 +101,8 @@ export default class App extends React.Component {
 	        autoFocus="true"
           onKeyPress={(e)=> this.handleCCNumberInput(e)}
           placeholder="• • • •   • • • •   • • • •   • • • •" />
+
+        <p className="card-type">{this.state.cardType}</p>
       </div>
   	);
   }
@@ -112,6 +114,9 @@ export default class App extends React.Component {
       charCodeLen = (targetVal.replace(/\D/g, "") + charCode).length,
       card = cardFromNumber(targetVal + charCode),
       maxLength = 16;
+
+      if (targetVal.length > 2)
+        this.setState({cardType: card.type});
 
       if (card && (maxLength = card.length), !/^\d+$/.test(charCode) || charCodeLen > maxLength) {
         return void e.preventDefault();
