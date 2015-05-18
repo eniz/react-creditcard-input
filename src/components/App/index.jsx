@@ -1,8 +1,6 @@
 import React from 'react';
 
 
-
-
 var defaultFormat = /(\d{1,4})/g;
 
 var cards = [
@@ -95,18 +93,18 @@ export default class App extends React.Component {
   }
 
   render() {
-  	return (
-  	  <div className="credit-card">
-        <input
-          type="text"
-	        autoComplete="off"
-	        autoFocus="true"
-          onKeyPress={(e)=> this.handleCCNumberInput(e)}
-          placeholder="• • • •   • • • •   • • • •   • • • •" />
+	return (
+	  <div className="credit-card">
+            <input
+              type="text"
+	      autoComplete="off"
+	      autoFocus="true"
+              onKeyPress={(e)=> this.handleCCNumberInput(e)}
+              placeholder="• • • •   • • • •   • • • •   • • • •" />
 
-        <p className="card-type">{this.state.cardType}</p>
-      </div>
-  	);
+            <p className="card-type">{this.state.cardType}</p>
+          </div>
+	);
   }
 
   handleCCNumberInput(e) {
