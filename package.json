@@ -19,7 +19,7 @@
     "start": "npm run build && serve .",
     "build": "npm run build-js",
     "watch": "npm run watch-js & npm run watch-css & serve .",
-    "test": "npm run lint -s && npm run build",
+    "test": "npm run build",
     "build-js": "browserify --extension=.jsx --extension=.js src/app.jsx | uglifyjs > build/build.js",
     "watch-js": "watchify --extension=.jsx --extension=.js src/app.jsx -o build/build.js --debug --verbose",
     "lint-eslint": "eslint .",
