@@ -7,6 +7,14 @@
     "type": "git",
     "url": "git@github.com:eniz/react-creditcard-input.git"
   },
+  "keywords": [
+    "react-component",
+    "react",
+    "component",
+    "react-creditcard-input",
+    "credit card",
+    "flux",
+  ],
   "authors": [
     "Eniz Gulek<enizgulek@gmail.com> (http://enizgulek.com)"
   ],
