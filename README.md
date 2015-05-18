@@ -15,6 +15,13 @@ React component for credit card input. It contains visa, master card, amex, dinn
 * React
 * Flux
 
+
+
+## Demo
+
+http://eniz.github.io/react-creditcard-input/
+
+
 ## Installation
 
 // TODO npm package
@@ -28,9 +35,6 @@ Just run `npm install` to get all the dependencies and then use:
 * **`npm run start`**: Creates `build/` files and spins up a server on `localhost:3000`. No watch in this case!
 
 
-## Demo
-
-// TODO
 
 
 ## Feedback
