@@ -87,13 +87,18 @@ var cards = [
 ];
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {cardType: ''};
+  }
+
   render() {
   	return (
   	  <div className="credit-card">
-        <input 
+        <input
           type="text"
-	      autoComplete="off"
-	      autoFocus="true"
+	        autoComplete="off"
+	        autoFocus="true"
           onKeyPress={(e)=> this.handleCCNumberInput(e)}
           placeholder="• • • •   • • • •   • • • •   • • • •" />
       </div>
