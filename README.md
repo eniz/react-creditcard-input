@@ -1,5 +1,7 @@
 # React Credit Card Input
 
+[![Build Status](https://travis-ci.org/eniz/react-creditcard-input.svg?branch=master)](https://travis-ci.org/eniz/react-creditcard-input)
+
 React component for credit card input. It contains visa, master card, amex, dinnersclub, discover and jcb patterns. It has written ES6 syntax.
 
 ## Used libraries
