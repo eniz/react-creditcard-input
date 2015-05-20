@@ -41,8 +41,6 @@
   },
   "homepage": "https://github.com/eniz/react-creditcard-input",
   "dependencies": {
-    "bootstrap": "^3.3.0",
-    "flux": "^2.0.1",
     "react": "^0.13.1"
   },
   "devDependencies": {
