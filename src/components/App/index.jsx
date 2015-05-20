@@ -1,6 +1,6 @@
 "use strict";
 
-import React from 'react';
+import React, { Component } from 'react';
 
 
 var defaultFormat = /(\d{1,4})/g;
@@ -88,7 +88,7 @@ var cardFromNumber = function(num) {
   }
 }
 
-export default class App extends React.Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {cardNumber: '', cardType: ''};
@@ -111,7 +111,8 @@ export default class App extends React.Component {
   }
 
   setCardNumber(e) {
-    this.setState({cardNumber: e.target.value});
+    var targetVal = e.target.value;
+    this.setState({cardNumber: targetVal});
   }
 
   handleCCNumberInput(e) {
@@ -128,7 +129,10 @@ export default class App extends React.Component {
       if (card && (maxLength = card.length), !/^\d+$/.test(charCode) || charCodeLen > maxLength) {
         return void e.preventDefault();
       }
+
       var cardTest = card && "amex" === card.type ? /^(\d{4}|\d{4}\s\d{6})$/ : /(?:^|\s)(\d{4})$/;
-      return cardTest.test(targetVal) && target.selectionStart === targetVal.length ? (e.preventDefault(), void(target.value = targetVal + " " + charCode)) : void 0;
+
+      return cardTest.test(targetVal) && target.selectionStart === targetVal.length ?
+        (e.preventDefault(), void(target.value = targetVal + " " + charCode)) : void 0;
   }
 }
