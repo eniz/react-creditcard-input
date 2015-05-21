@@ -1,10 +1,23 @@
-import React from 'react';
+'use strict';
+
+import React, { Component } from 'react';
 
 import App from './components/App';
+import ForkMeOnGithub from './components/ForkMeOnGitHub/ForkMeOnGitHub';
 
 
-if (typeof document !== 'undefined') {
-  React.render(<App />,document.getElementById('content'));
+class Example extends Component {
+  render() {
+    return (
+      <div>
+        <h1>React Credit Card Input Demo</h1>
+        <ForkMeOnGithub user="eniz" repo="react-creditcard-input" />
+        <App />
+      </div>
+    );
+  }
 }
 
-export default App;
+if (typeof document !== 'undefined') {
+  React.render(<Example />,document.getElementById('app'));
+}
