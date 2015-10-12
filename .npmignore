@@ -1,2 +1,7 @@
-dist/__tests__
-src
+node_modules/
+.DS_Store
+*.log
+.gitignore
+.git/
+src/
+demo/

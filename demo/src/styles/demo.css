@@ -1,0 +1,66 @@
+body,
+html {
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, 'sans-serif';
+  font-size: 62.5%;
+  font-weight: 400;
+}
+
+body * {
+  box-sizing: inherit;
+}
+
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+h1 {
+  margin: 20px 180px;
+  color: #000;
+}
+
+input {
+  position: relative;
+  display: block;
+  width: 275px;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 3px;
+  color: #454749;
+  box-shadow: inset 0 0 0 1px #cfd2d4;
+  padding: 8px 10px;
+  font-size: 16px;
+  margin: 0 auto;
+  box-shadow: inset 0 0 0 1px #cfd2d4;
+}
+
+input:focus {
+  background: rgba(164, 63, 101, 0.05);
+  outline: none;
+  border: 1px solid rgba(30, 126, 158, 0.66);
+}
+
+:local(.credit-card) {
+  background-color: white;
+  margin: 160px auto 100px;
+  padding: 50px 0 50px 0;
+  box-shadow: 0 0 12px 2px hsla(0, 0%, 0%, 0.1);
+  width: 800px;
+  min-height: 200px;
+}
+:local(.card-type) {
+  margin: 0 auto;
+  width: 275px;
+  padding-top: 30px;
+}

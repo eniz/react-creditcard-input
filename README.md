@@ -6,9 +6,15 @@ React component for credit card input. It contains visa, master card, amex, dinn
 
 ## Used libraries
 
+## Getting Started
+### Installation
+
+```
+$ npm install --save react-creditcard-input
+```
+
 ### Build Libraries
 
-* Browserify
 * Rework
 * ESLint
 
@@ -24,19 +30,7 @@ React component for credit card input. It contains visa, master card, amex, dinn
 
 ## Demo
 
-http://eniz.github.io/react-creditcard-input/
-
-
-
-
-## Usage
-
-Just run `npm install` to get all the dependencies and then use:
-
-* **`npm run watch`**: Spins up a server on `localhost:3000` with Watch for CSS and JS files.
-* **`npm run start`**: Creates `build/` files and spins up a server on `localhost:3000`. No watch in this case!
-
-
+**Live Demo :** [http://eniz.github.io/react-creditcard-input/](http://eniz.github.io/react-creditcard-input/)
 
 
 ## Feedback
